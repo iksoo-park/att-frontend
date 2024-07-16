@@ -105,7 +105,7 @@ jobs:
         with:
           host: ${{ secrets.HOST_IP }}
           username: ec2-user
-          password: ${{ secrets.PRIVATE_KEY }}
+          key: ${{ secrets.PRIVATE_KEY }}
           script_stop: true
           script: |
             pwd
