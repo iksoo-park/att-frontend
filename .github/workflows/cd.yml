@@ -94,7 +94,8 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script_stop: true
           script: |
-            cd att/vue-frontend
+            pwd
+            cd /home/ec2-user/att/vue-frontend
             cp -r /home/ec2-user/att/actions-frontend/dist/* ./html/
 
             docker image prune -f
