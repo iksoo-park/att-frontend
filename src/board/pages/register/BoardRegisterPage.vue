@@ -59,6 +59,7 @@ export default {
         },
         async onCancel () {
             console.log('취소 버튼 눌럿지 ?')
+            this.$router.go(-1)
         }
     }
 }
