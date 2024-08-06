@@ -1,20 +1,26 @@
 <template>
-    <v-container class="container">
+    <v-container>
         <div>
-            <v-btn class="google-login-btn" block @click="goToGoogleLogin">
-            </v-btn>
+            <v-btn class="google-login-btn" block @click="goToGoogleLogin"></v-btn>
         </div>
     </v-container>
 </template>
 
+
 <script>
-import router from "@/router";
+import { useStore } from 'vuex'
+
+const googleAuthenticationModule = 'googleAuthenticationModule'
 
 export default {
-    methods: {
-        goToGoogleLogin() {
-            router.push("/google_oauth/google-access-token");
-        },
+    setup () {
+        const store = useStore()
+        const goToGoogleLogin = async () => {
+            await store.dispatch("googleAuthenticationModule/requestGoogleOauthRedirectionToDjango")
+        }
+        return {
+            goToGoogleLogin
+        }
     }
 }
 </script>
