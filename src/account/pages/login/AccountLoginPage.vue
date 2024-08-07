@@ -1,10 +1,9 @@
 <template>
-    <v-container class="login-container" fluid>
-        <div class="button-wrapper">
-            <v-img class="google-login-btn" block @click="goToGoogleLogin"></v-img>
-        </div>
+    <v-container class="login-container">
         <div>
-            <v-btn class="kakao-login-btn" block @click="goToKakaoLogin"></v-btn>
+            <v-img class="google-login-btn" block @click="goToGoogleLogin"></v-img>
+            <v-img class="kakao-login-btn" block @click="goToKakaoLogin"></v-img>
+            <v-img class="naver-login-btn" block @click="goToNaverLogin"></v-img>
         </div>
     </v-container>
 </template>
@@ -13,6 +12,7 @@
 import { useStore } from 'vuex'
 
 const googleAuthenticationModule = 'googleAuthenticationModule'
+const kakaoAuthenticationModule = 'kakaoAuthenticationModule'
 
 export default {
     setup () {
@@ -23,9 +23,13 @@ export default {
         const goToKakaoLogin = async () => {
             await store.dispatch("kakaoAuthenticationModule/requestKakaoOauthRedirectionToDjango")
         }
+        const goToNaverLogin = async () => {
+            await store.dispatch("naverAuthenticationModule/requestNaverOauthRedirectionToDjango")
+        }
         return {
             goToGoogleLogin,
-            goToKakaoLogin
+            goToKakaoLogin,
+            goToNaverLogin,
         }
     }
 }
@@ -37,7 +41,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 30vh;
+    margin-top: 30vh;
 }
 
 .google-login-btn {
@@ -45,16 +49,25 @@ export default {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    background-color: transparent; /* 배경색을 투명하게 설정 */
     height: 50px; /* 버튼 높이 조정 */
     width: 200px; /* 버튼 너비 조정 */
 }
 .kakao-login-btn {
-    background-image: url("@/assets/images/fixed/kakaologin.png");
+    background-image: url("@/assets/images/fixed/kakaoLogin.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    align-items: center;
-    justify-content: center;
+    height: 50px; /* 버튼 높이 조정 */
+    width: 200px; /* 버튼 너비 조정 */
+    margin-top: 10px;
+}
+.naver-login-btn {
+    background-image: url("@/assets/images/fixed/naverLogin.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 50px; /* 버튼 높이 조정 */
+    width: 200px; /* 버튼 너비 조정 */
+    margin-top: 10px;
 }
 </style>
