@@ -1,11 +1,10 @@
 <template>
-    <v-container>
-        <div>
-            <v-btn class="google-login-btn" block @click="goToGoogleLogin"></v-btn>
+    <v-container class="login-container" fluid>
+        <div class="button-wrapper">
+            <v-img class="google-login-btn" block @click="goToGoogleLogin"></v-img>
         </div>
     </v-container>
 </template>
-
 
 <script>
 import { useStore } from 'vuex'
@@ -26,14 +25,21 @@ export default {
 </script>
 
 
-
 <style scoped>
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30vh;
+}
+
 .google-login-btn {
     background-image: url("@/assets/images/fixed/googleLogin.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    align-items: center;
-    justify-content: center;
+    background-color: transparent; /* 배경색을 투명하게 설정 */
+    height: 50px; /* 버튼 높이 조정 */
+    width: 200px; /* 버튼 너비 조정 */
 }
 </style>
