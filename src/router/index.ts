@@ -5,6 +5,8 @@ import GoogleAuthenticationRoutes from '@/googleAuthentication/router/GoogleAuth
 
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import AccountRoutes from '@/account/router/AccountRoutes'
+import KakaoAuthenticationRoutes from '@/kakaoAuthentication/router/KakaoAuthenticationRoutes'
+
 
 const routes: Array<RouteRecordRaw> = [
   ...HomeRoutes,
@@ -12,6 +14,7 @@ const routes: Array<RouteRecordRaw> = [
   ...AccountRoutes,
   // ...NaverAuthenticationRoutes,
   ...GoogleAuthenticationRoutes,
+  ...KakaoAuthenticationRoutes,
 ]
 
 const router = createRouter({
