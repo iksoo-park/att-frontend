@@ -1,10 +1,10 @@
 import actions, { AuthenticationActions } from "./actions"
 import mutations, { AuthenticationMutations } from "./mutations"
-import state, { AuthenticationState } from "./states"
+import state, { NaverAuthenticationState } from "./states"
 
 export interface NaverAuthenticationModule {
     namespaced: true
-    state: AuthenticationState
+    state: NaverAuthenticationState
     actions: AuthenticationActions
     mutations: AuthenticationMutations
 }

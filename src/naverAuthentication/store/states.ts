@@ -1,9 +1,9 @@
-export interface AuthenticationState {
+export interface NaverAuthenticationState {
     isAuthenticated: boolean
     isAdmin: boolean
 }
 
-const state: AuthenticationState = {
+const state: NaverAuthenticationState = {
     isAuthenticated: false,
     isAdmin: false
 }

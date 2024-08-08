@@ -11,16 +11,16 @@ const accountModule = 'accountModule'
 export default {
     methods: {
         ...mapActions(authenticationModule, [
-            'requestAccessTokenTojangoRedirection',
+            'requestAccessTokenToDjangoRedirection',
         ]),
         async setRedirectData () {
             const code = this.$route.query.code
-
             await this.requestAccessTokenToDjangoRedirection({ code })
         },
-        async created () {
+    },
+    
+    async created () {
             await this.setRedirectData()
         }
-    }
 }
 </script>
