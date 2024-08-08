@@ -79,7 +79,7 @@ export default {
     },
     methods: {
         ...mapActions(googleAuthenticationModule, ['requestUserInfoToDjango']),
-        ...mapActions(accountModule, ['requestNicknameDuplicationCheckToDjango']),
+        ...mapActions(accountModule, ['requestNicknameDuplicationCheckToDjango', 'requestCreateNewAccountToDjango']),
 
         async requestUserInfo () {
             try {
@@ -114,6 +114,22 @@ export default {
 
         async submitForm () {
             console.log('신청하기 버튼 클릭')
+
+            if (this.$refs.form.validate()) {
+                const accountInfo = {
+                    email: this.email,
+                    nickname: this.nickname,
+                }
+
+                await this.requestCreateNewAccountToDjango(accountInfo)
+                console.log('전송한 데이터:', accountInfo)
+
+                const accessToken = localStorage.getItem("accessToken");
+                const email = accountInfo.email
+                console.log('register submitForm email:', email)
+
+                this.$router.push('/')
+            }
         }
     }
 }
