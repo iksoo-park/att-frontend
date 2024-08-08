@@ -1,9 +1,9 @@
-export interface AuthenticationState {
+export interface KakaoAuthenticationState {
     isAuthenticated: boolean
     isAdmin: boolean
 }
 
-const state: AuthenticationState = {
+const state: KakaoAuthenticationState = {
     isAuthenticated: false,
     isAdmin: false
 }
