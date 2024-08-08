@@ -1,3 +1,4 @@
+import accountModule from '@/account/store/accountModule'
 import boardModule from '@/board/store/boardModule'
 import googleAuthenticationModule from '@/googleAuthentication/store/googleAuthenticationModule'
 import kakaoAuthenticationModule from '@/kakaoAuthentication/store/kakaoAuthenticationModule'
@@ -14,6 +15,7 @@ export default createStore({
   },
   modules: {
     boardModule,
+    accountModule,
     googleAuthenticationModule,
     kakaoAuthenticationModule,
   }
